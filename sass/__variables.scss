@@ -1,0 +1,16 @@
+//------------------------------------------------------------------
+//  VARIABLES
+//------------------------------------------------------------------
+@use '__colors.scss' as *;
+//
+//  UI VARS
+//
+$ui-border: 1px solid $color-stroke;
+$ui-border-radius: 8px;
+$ui-padding: 12px 12px;
+$ui-margin: 12px 12px;
+$ui-width: 340px;
+$ui-shadow: 0 4px 2px 2px rgba($color: #000000, $alpha: 0.2);
+$ui-shadow-inset: inset 3px -6px 4px 1px rgba($color: #000000, $alpha: 0.2);
+$ui-shadow-drop: 0px 6px 2px 0px rgba($color: #000000, $alpha: 0.4);
+$ui-transition: all 0.95s cubic-bezier(0.39, 0.575, 0.565, 1);

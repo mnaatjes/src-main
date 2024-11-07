@@ -1,0 +1,208 @@
+//------------------------------------------------------------------
+//  MIXINS
+//------------------------------------------------------------------
+@use '__colors.scss' as *;
+@use '__variables.scss' as *;
+//------------------------------------------------------------------
+//
+//  MIXINS: PROPERTIES
+//
+//------------------------------------------------------------------
+//
+//  SHADOW
+//
+@mixin shadow($left, $top){
+    box-shadow: $left $top 2px 2px rgba($color: #000000, $alpha: 0.2);
+}
+@mixin shadow--drop {box-shadow: $ui-shadow-drop;}
+//
+//  TEXT SHADOW
+//
+@mixin text_shadow {text-shadow: 1px 1px 2px $color-stroke;}
+//
+//  TEXT
+//
+@mixin text($size){
+    /*TEXT*/
+    font-size: $size;
+    color: $color-background;
+    font-weight: bold;
+}
+//
+//  GRADIENT 90
+//
+@mixin gradient--90($color_a, $color_b){
+    background: linear-gradient(
+        90deg,
+        $color_a 0%,
+        $color-b 100%
+    );
+}
+//
+//  GRADIENT 180
+//
+@mixin gradient--180($color_a, $color_b){
+    background: linear-gradient(
+        180deg,
+        $color_a 0%,
+        $color_b 100%
+    );
+}
+//
+//  TRANSITION
+//
+@mixin transition{
+    transition: all 0.95s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+//------------------------------------------------------------------
+//
+//  MIXINS: LAYOUT
+//
+//------------------------------------------------------------------
+//
+//  DEBUG BORDER
+//
+@mixin debug__border {
+    border: 1px solid red;
+}
+//
+//  FLEX ROW
+//
+@mixin flex__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+//
+//  FLEX ROW AROUND
+//
+@mixin flex__row--center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+//
+//  FLEX ROW AROUND
+//
+@mixin flex__row--around {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+//
+//  FLEX ROW BETWEEN
+//
+@mixin flex__row--between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+//
+//  FLEX COLUMN
+//
+@mixin flex__col {
+    display: flex;
+    flex-direction: column;
+}
+//
+//  FLEX COLUMN CENTERED
+//
+@mixin flex__col--center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+//------------------------------------------------------------------
+//
+//  MIXINS: ELEMENTS
+//
+//------------------------------------------------------------------
+//
+//  BORDER
+//
+@mixin border($color){border: 4px solid $color;}
+//
+//  CONTAINER
+//
+@mixin container($border_color, $color_a, $color_b) {
+    /*FLEX*/
+    /*GRID*/
+    /*POSTITION*/
+    padding: 12px;
+    width: 100%;
+    height: 200px;
+    /*DISPLAY*/
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    justify-items: center;
+    align-items: center;
+    //@include flex__col--center();
+    /*BORDER*/
+    border-radius: $ui-border-radius;
+    @include border($border_color);
+    /*BKRND*/
+    @include gradient--90($color_a, $color_b);
+    /*TEXT*/
+    @include text(24px);
+    text-align: center;
+    /*SHADOW*/
+    box-shadow: $ui-shadow-inset;
+    /*TRANSFORM*/
+    @include transition();
+}
+//
+//  CARD
+//
+@mixin card__front($color-lite, $color-dark, $img_url){
+    /*POSTITION*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*DISPLAY*/
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /*BORDER*/
+    border-radius: 4px;
+    border-width: 4px;
+    border-style: solid;
+    /*SHADOW*/
+    box-shadow: 0px 12px 8px 2px rgba($color: #000000, $alpha: 0.2);
+    /*BORDER*/
+    border-color: $color-dark;
+    /*BACKGROUND*/
+    background: $color-lite;
+    background-image: url($img_url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+@mixin card__back($color-dark, $img_url){
+    /*POSTITION*/
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /*DISPLAY*/
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /*BORDER*/
+    border-radius: 4px;
+    border-width: 4px;
+    border-style: solid;
+    /*SHADOW*/
+    box-shadow: 0px 12px 8px 2px rgba($color: #000000, $alpha: 0.2);
+    /*BORDER*/
+    border-color: $color-dark;
+    /*BACKGROUND*/
+    background: $color-dark;
+    background-image: url($img_url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /*TRANSFORM*/
+    transform: rotateY(180deg);
+}
