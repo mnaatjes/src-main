@@ -12,6 +12,25 @@
 
 /*----------------------------------------------------------*/
 /**
+ * @name getGCF
+ * @type {Function}
+ * @memberof UtilsMain
+ * @param {Number} a
+ * @param {Number} b
+ * @returns {Number} greatest common factor
+ */
+/*----------------------------------------------------------*/
+function getGCF(a, b){
+    /**
+     * ensure b is not 0
+     */
+    if(a == 0){return b;}
+
+    return getGCF(b % a, a);
+
+}
+/*----------------------------------------------------------*/
+/**
  * @name range
  * @type {Function}
  * @memberof UtilsMain
