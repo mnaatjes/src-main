@@ -4,41 +4,37 @@
 //------------------------------------------------------------------
 //  COLORS: ELEMENTS
 //------------------------------------------------------------------
-//  ORANGE
-$color-orange-dark: #F38424;
-$color-orange-mid: #F7C929;
-$color-orange-lite: #F2E30B;
-//  RED
-$color-red-lite: #DD543D;
-$color-red-mid: #A02B1C;
-$color-red-dark: #6C3228;
-$color-red-container: #FFE6EE;
-$color-red-stroke: #FF0353;
-//  YELLOW
-$color-yellow-dark: #F6BA06;
-$color-yellow-mid: #FFE326;
-$color-yellow-lite: #FEE20E;
-$color-yellow-surface: #2642FF;
-//  BLUE
-$color-blue-container: #E3F6F5;
-$color-blue-lite: #3ACFFF;
-$color-blue-mid: #1F90FF;
-$color-blue-dark: #135699;
-//  GREEN
-$color-green-dark: #3DA600;
-$color-green-mid: #83E222;
-$color-green-lite: #CDFA2E;
-$color-green-stroke: #3FFF3F;
-$color-green-container: #D4FFCD;
-// GRAY
-$color-grey-lite: #B9BFD3;
-$color-grey-mid: #587F93;
-$color-grey-dark: #324a56;
+//
+//  Primary
+//
+$color-primary: #2d7356;
+$color-primaryContainer: #66f0b7; 
+$color-primaryStroke: #0c2b1e; 
+$color-primaryDim: #1c4d39; 
+$color-primaryLite: #6c9d89; 
+//
+//  Secondary
+//
+$color-secondary: #4a31e7;
+$color-secondary-200: #C6C4FA;
+$color-secondaryStroke: #120753;
+$color-secondaryContainer: #edecfd;
+//
+//  Tertiary
+//
+$oolor-tertiary: #e4f066;
+$oolor-tertiaryStroke: #131404;
+$oolor-tertiaryContainer: #f2f8b3;
+//
+//  Error
+//
+$color-error: #cd327b;
+$color-errorStroke: #270313;
+$color-errorContainer: #fbdde6;
 //------------------------------------------------------------------
 //  COLORS: UI
 //------------------------------------------------------------------
-$color-stroke: #1E1E1E;
-$color-stroke-mid: #4b4b4b;
-$color-background: #f6f6f6;
-$color-surface: $color-background;
-$color-surface-dim: #c5c5c5;
+$color-stroke: #101111;
+$color-stroke-mid: #434644;
+$color-stroke-lite: #A5AAA6;
+$color-surface: #f2f4f3;

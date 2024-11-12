@@ -116,6 +116,15 @@
     justify-content: center;
     align-items: center;
 }
+//
+//  FLEX COLUMN START STRETCH
+//
+@mixin flex__col--start-stretch {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch
+}
 //------------------------------------------------------------------
 //
 //  MIXINS: ELEMENTS

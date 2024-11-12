@@ -5,7 +5,14 @@
 /*-------------------------------------------------------------------
  *   STATES
  *------------------------------------------------------------------*/
-
+[data-state="disabled"] {
+    filter: grayscale(0.8);
+}
+button[data-state="disabled"] {
+    cursor: default;
+    pointer-events: none;
+    user-select: none;
+}
 /*-------------------------------------------------------------------
  *   SEMANTIC
  *------------------------------------------------------------------*/
@@ -35,10 +42,6 @@ body {
     background: $color-surface;
 }
 //body > * {@include debug__border();}
-/*
- *  HEADINGS
-*/
-h1, h2, h3, h4, h5 {}
 /*-------------------------------------------------------------------
  *   NAV ELEMENTS
  *------------------------------------------------------------------*/
@@ -88,9 +91,8 @@ section {
     /*ANIMATION*/
 }
 main {
-    /*FLEX*/
-    /*GRID*/
     /*POSTITION*/
+    position: relative;
     padding: 24px;
     /*DISPLAY*/
     @include flex__col--center();
@@ -103,42 +105,291 @@ main {
     /*TRANSFORM*/
     /*ANIMATION*/
 }
+//main > * {border: 1px solid red}
 /*-------------------------------------------------------------------
- *   MAIN ELEMENTS
- *------------------------------------------------------------------*/
-
-/*-------------------------------------------------------------------
- *   BUTTON ELEMENTS
- *------------------------------------------------------------------*/
-button {
-    /*FLEX*/
-    /*GRID*/
-    /*POSTITION*/
-    /*DISPLAY*/
-    /*BORDER*/
-    /*BACKGROUND*/
-    /*TEXT*/
-    /*SHADOW*/
-    /*TRANSFORM*/
-    /*ANIMATION*/
-}
-/*-------------------------------------------------------------------
- *   INPUT ELEMENTS
+ *   SECTIONS ELEMENTS: OUTPUT
  *------------------------------------------------------------------*/
 /**
- *  INPUT
- */
-input {
-    /*FLEX*/
-    /*GRID*/
+ *  SECTION: OUTPUT
+*/
+ section#ele__output {
     /*POSTITION*/
+    width: $main-width;
     /*DISPLAY*/
+    display: flex;
+    flex-direction: row;
+    /**------------------------------------
+     * ITEM
+     *-----------------------------------*/
+    .title {
+        /*POSTITION*/
+        width: $section-width;
+        /*DISPLAY*/
+        @include flex__col--center();
+        /*BORDER*/
+        border-top-left-radius: $ui-border-radius;
+        border-bottom-left-radius: $ui-border-radius;
+        /*BACKGROUND*/
+        background: $color-primary;
+        /*TEXT*/
+        font-weight: 600;
+        color: $color-surface;
+        /**
+         * OUTPUT ICON
+         */
+        .icon {
+            margin-bottom: 6px;
+            font-size: 24px;
+        }
+    }
+    /**------------------------------------
+     * ITEM CONTAINER
+     *-----------------------------------*/
+    #item__container {
+        flex: 1;
+        /*POSTITION*/
+        padding: 24px 0;
+        /*DISPLAY*/
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: 1fr;
+        /*BORDER*/
+        border-top-right-radius: $ui-border-radius;
+        border-bottom-right-radius: $ui-border-radius;
+        /*BACKGROUND*/
+        background: $color-primaryContainer;
+        /*TEXT*/
+        /**------------------------------------
+         *  ITEM
+         *-----------------------------------*/
+        .item {
+            /*POSTITION*/
+            margin: 0;
+            padding: 0 12px;
+            /*DISPLAY*/
+            @include flex__col--start-stretch();
+            /*BORDER*/
+            border-left: 1px solid $color-primaryLite;
+            /**------------------------------------
+            *  H4
+            *-----------------------------------*/
+            h4 {
+                /*POSTITION*/
+                margin: 6px 0;
+                padding: 0;
+                /*TEXT*/
+                font-size: 24px;
+                font-weight: 600;
+                color: $color-primaryStroke;
+            }
+            /**------------------------------------
+            *  SMALL
+            *-----------------------------------*/
+            small {
+                /*POSTITION*/
+                margin: 0;
+                padding: 0;
+                /*TEXT*/
+                font-size: 12px;
+                color: $color-stroke-mid;
+            }
+        }
+        /**
+         *  ITEM: FIRST
+         */
+        .item:first-child {
+            border-left: none;
+        }
+    }
+}
+/*-------------------------------------------------------------------
+ *   SECTIONS ELEMENTS: OUTPUT
+ *------------------------------------------------------------------*/
+/**
+ *  SECTION: ENTRY CONTAINER
+ */
+section#entry__container {
+    /*POSTITION*/
+    padding: 0;
+    margin: 24px 0;
+    width: $main-width;
+    /*DISPLAY*/
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    grid-template-rows: 1fr;
+    /**------------------------------------
+    *  ENTRY TITLE
+    *-----------------------------------*/
+    article.entry__title {
+        /*POSTITION*/
+        padding: 24px 0;
+        width: $section-width;
+        /*DISPLAY*/
+        @include flex__col--center();
+        /*BORDER*/
+        border-top-left-radius: $ui-border-radius;
+        border-bottom-left-radius: $ui-border-radius;
+        /*BACKGROUND*/
+        background: $color-secondary;
+        /*TEXT*/
+        font-weight: 600;
+        color: $color-surface;
+        /**
+         *  TITLE ICON
+         */
+        .icon {
+            margin-bottom: 6px;
+            font-size: 24px;
+        }
+    }
+    /**------------------------------------
+    *  ENTRY OUTPUT
+    *-----------------------------------*/
+    article#entry__output {
+        /*DISPLAY*/
+        @include flex__col--center();
+        /*BACKGROUND*/
+        background: $color-secondaryContainer;
+        /*TEXT*/
+        font-size: 24px;
+        color: $color-secondaryStroke;
+    }
+    /**------------------------------------
+    *  ENTRY: INPUTS
+    *-----------------------------------*/
+    article#entry__inputs {
+        /*DISPLAY*/
+        @include flex__row--center();
+        /*BORDER*/
+        border-left: 1px solid $color-secondary-200;
+        /**------------------------------------
+        *  ENTRY ICON
+        *-----------------------------------*/
+        .icon {
+            /*POSTITION*/
+            margin: 0;
+            padding: 0 0 0 12px;
+            height: 100%;
+            /*DISPLAY*/
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            /*BORDER*/
+            border-top: 1px solid $color-secondaryContainer;
+            border-bottom: 1px solid $color-secondaryContainer;
+            /*BACKGROUND*/
+            background: $color-secondaryContainer;
+            /*TEXT*/
+            font-size: 24px;
+        }
+        /**------------------------------------
+        *  ENTRY BUTTON
+        *-----------------------------------*/
+        button {
+            outline: none;
+            cursor: pointer;
+            /*POSTITION*/
+            padding: 0 12px;
+            height: 100%;
+            /*DISPLAY*/
+            /*BORDER*/
+            border-top-right-radius: $ui-border-radius;
+            border-bottom-right-radius: $ui-border-radius;
+            border: 1px solid $color-secondaryContainer;
+            /*BACKGROUND*/
+            background: $color-secondary-200;
+            /*TEXT*/
+            font-weight: 600;
+            color: $color-secondaryStroke;
+            /*ANIMATIONS*/
+            transition: $ui-transition;
+        }
+        button:hover {
+            /*BORDER*/
+            border: 1px solid $color-secondary;
+            /*BACKGROUND*/
+            background: $color-secondary;
+            /*TEXT*/
+            color: $color-surface;
+        }
+        /**------------------------------------
+        *  ENTRY INPUT
+        *-----------------------------------*/
+        input {
+            outline: none;
+            /*POSTITION*/
+            height: 100%;
+            /*BORDER*/
+            border: 1px solid $color-secondaryContainer;
+            /*BACKGROUND*/
+            background: $color-secondaryContainer;
+            /*TEXT*/
+            text-align: center;
+            font-weight: 600;
+            color: $color-secondaryStroke;
+            font-size: 24px;
+        }
+    }
+}
+//section#entry__container > * {border: 1px solid red;}
+/**------------------------------------
+ *  ALERTS
+ *-----------------------------------*/
+section#ele__alerts {
+    /*POSTITION*/
+    position: absolute;
+    z-index: 10;
+    width: $main-width;
+    /*DISPLAY*/
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 1fr;
     /*BORDER*/
-    /*BACKGROUND*/
-    /*TEXT*/
+    border-radius: $ui-border-radius;
     /*SHADOW*/
-    /*TRANSFORM*/
-    /*ANIMATION*/
+    box-shadow: $ui-shadow;
+    /**------------------------------------
+    *  ITEM
+    *-----------------------------------*/
+    .title {
+        /*POSTITION*/
+        padding: 24px 0;
+        @include flex__col--center();
+        /*BORDER*/
+        border-top-left-radius: $ui-border-radius;
+        border-bottom-left-radius: $ui-border-radius;
+        /*BACKGROUND*/
+        background: $color-error;
+        /*TEXT*/
+        font-size: 16px;
+        font-weight: 600;
+        color: $color-surface;
+        /**
+         * ICON
+         */
+        .icon {
+            margin-bottom: 6px;
+            font-size: 24px;
+        }
+    }
+    /**------------------------------------
+     *  SMALL
+     *-----------------------------------*/
+    small {
+        /*POSTITION*/
+        padding: 24px;
+        /*DISPLAY*/
+        display: block;
+        /*BORDER*/
+        border-top-right-radius: $ui-border-radius;
+        border-bottom-right-radius: $ui-border-radius;
+        /*BACKGROUND*/
+        background: $color-errorContainer;
+        /*TEXT*/
+        color: $color-errorStroke;
+        font-size: 16px;
+    }
 }
 /*-------------------------------------------------------------------
  *   CANVAS

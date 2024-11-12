@@ -132,3 +132,90 @@ function writeNode(node, string){
     node.innerHTML = string;
     return true;
 }
+/*----------------------------------------------------------*/
+/**
+ * @name traverseJSON
+ * @type {Function}
+ * @memberof UtilsMain
+ * @param {String | Object} obj json object
+ * @param {Function} callback perform actions on key, value pairs
+ * @returns {Object} json key, values
+ */
+/*----------------------------------------------------------*/
+function traverseJSON(obj, callback){
+    /**
+     * check if string
+     */
+    if(typeof json == 'string'){json = JSON.parse(json);}
+    /**
+     * loop json value key pairs
+     */
+    for(let key in obj){
+        /**
+         * check if key exists
+         */
+        if(obj.hasOwnProperty(key)){
+            /**
+             * run callback
+             */
+            callback(key, obj[key]);
+            /**
+             * iterate through next object
+             */
+            if(typeof obj[key] == 'object'){
+                /**
+                 * call function
+                 */
+                traverseJSON(obj[key], callback);
+            }
+        }
+    }
+}
+/*----------------------------------------------------------*/
+/**
+ * @name listJSON
+ * @type {Function}
+ * @memberof UtilsMain
+ * @param {String | Object} obj json object
+ * @param {Number} depth selector for how deep
+ * @param {Function} callback execute function
+ * @param {Number} curr current depth
+ * @returns {Object} list objects at depth n
+ */
+/*----------------------------------------------------------*/
+function listJSON(obj, depth, callback, curr=0){
+    /**
+     * check depth
+     */
+    if(curr == depth){
+        /**
+         * if depths match
+         * check if value is object
+         * and object is not empty
+         */
+        if(typeof obj === 'object' && obj != null){
+            /**
+             * perform callback actions
+             */
+            callback(obj, curr);
+        } 
+    } else {
+        /**
+         * if depths don't match
+         * go deeper into object
+         * loop object for inner objects
+         */
+        for(let key in obj){
+            /**
+             * validate obj
+             */
+            if(typeof obj[key] === 'object' && obj[key] != null){
+                /**
+                 * run self
+                 * at increased depth
+                 */
+                listJSON(obj[key], depth, callback, (curr + 1));
+            }
+        }
+    }
+}

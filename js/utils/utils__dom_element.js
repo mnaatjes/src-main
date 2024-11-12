@@ -62,6 +62,7 @@ class DOMElement {
          */
         this.state = {
             enabled: false,
+            disabled: false,
             hidden: false,
             active: false,
             listening: false,
@@ -109,6 +110,13 @@ class DOMElement {
                         if(state == 'enabled'){
                             if(value == true){result = state;}
                             else {result = 'disabled';}
+                        }
+                        /**
+                         * attrib value: disabled
+                         */
+                        if(state == 'disabled'){
+                            if(value == true){result = state;}
+                            else {result = 'enabled';}
                         }
                         /**
                          * attrib value: hidden
@@ -363,6 +371,14 @@ class DOMElement {
 
         };
         /**
+         * @name entries
+         * @type {Array}
+         * @property {}
+         * @memberof DOMElement
+         * @description
+         */
+        this.entries = [];
+        /**
          * @implements initDOMElement
          */
         this.initDOMElement();
@@ -455,7 +471,7 @@ class DOMElement {
         /**
          * set node attribute
          */
-        this.node.setAttribute(this.attrib, value);
+        this.node.setAttribute(this.attrib, state);
         /**
          * update state
          */
@@ -525,7 +541,7 @@ class DOMElement {
         /**
          * @implements update
          */
-        this.update('enabled', false);
+        this.update('disabled', true);
     }
     /*----------------------------------------------------------*/
     /**
@@ -709,5 +725,26 @@ class DOMElement {
          * update state
          */
         this.state.update(this.node);
+    }
+    /*----------------------------------------------------------*/
+    /**
+     * @name createChildren
+     * @type {Method}
+     * @memberof DOMElement
+     * @returns
+     */
+    /*----------------------------------------------------------*/
+    createChildren(){
+        /**
+         * TODO:    create n number of child nodes
+         *          define tag type
+         *          define styles
+         *          append classList
+         *          create nested, appended, adjacent
+         *          add to children list; turn into DOMElements
+         *          be able to select easily
+         *          be able to write to all in a loop
+         *          be able to update just one
+         */
     }
 }

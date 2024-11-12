@@ -8,18 +8,6 @@
  */
 /*----------------------------------------------------------*/
 /**
- * @name dataset
- * @type {Object}
- * @memberof Chart
- */
-let dataset = [
-    {data: 0, label: 'Quarter'},
-    {data: 1, label: 'Dimes'},
-    {data: 2, label: 'Pennies'},
-    {data: 8, label: 'Nickels'},
-    {data: 6, label: 'Halfs'}
-];
-/**
  * @name config
  * @type {Object}
  * @memberof Chart
@@ -32,8 +20,8 @@ let config = {
      * @namespace Config
      */
     chart: {
-        width: 480,
-        height: 320
+        width: 640,
+        height: 480
     },
     offsetX: 50,
     offsetY: 50,
@@ -61,7 +49,6 @@ let config = {
     }
 };
 /**
- * @implements Chart
+ * @implements User
  */
-const chart = new Chart('viewport', config);
-chart.updateChart(dataset);
+const user = new User('ele__input', 'btn__submit', config);

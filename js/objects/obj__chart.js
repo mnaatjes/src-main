@@ -187,13 +187,13 @@ class Chart {
     /*----------------------------------------------------------*/
     updateChart(dataset){
         /**
-         * assign new data to obj dataset
-         */
-        this.dataset = dataset;
-        /**
          * configure chart settings
          */
         this.settings = new ChartSettings(this.canvas.width, this.canvas.height, this.config, dataset);
+        /**
+         * clear existing chart
+         */
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         /**
          * render scales
          */
@@ -213,7 +213,6 @@ class Chart {
      */
     /*----------------------------------------------------------*/
     renderScale(scales){
-        console.log(scales);
         /**
          * get colors
          */

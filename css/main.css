@@ -1,6 +1,16 @@
 /*-------------------------------------------------------------------
  *   STATES
  *------------------------------------------------------------------*/
+[data-state=disabled] {
+  filter: grayscale(0.8);
+}
+
+button[data-state=disabled] {
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
 /*-------------------------------------------------------------------
  *   SEMANTIC
  *------------------------------------------------------------------*/
@@ -31,12 +41,9 @@ body {
   justify-content: center;
   align-items: center;
   /*BACKGROUND*/
-  background: #f6f6f6;
+  background: #f2f4f3;
 }
 
-/*
- *  HEADINGS
-*/
 /*-------------------------------------------------------------------
  *   NAV ELEMENTS
  *------------------------------------------------------------------*/
@@ -89,9 +96,8 @@ section {
 }
 
 main {
-  /*FLEX*/
-  /*GRID*/
   /*POSTITION*/
+  position: relative;
   padding: 24px;
   /*DISPLAY*/
   display: flex;
@@ -99,7 +105,7 @@ main {
   justify-content: center;
   align-items: center;
   /*BORDER*/
-  border-radius: 8px;
+  border-radius: 4px;
   /*BACKGROUND*/
   /*TEXT*/
   /*SHADOW*/
@@ -109,41 +115,308 @@ main {
 }
 
 /*-------------------------------------------------------------------
- *   MAIN ELEMENTS
+ *   SECTIONS ELEMENTS: OUTPUT
  *------------------------------------------------------------------*/
-/*-------------------------------------------------------------------
- *   BUTTON ELEMENTS
- *------------------------------------------------------------------*/
-button {
-  /*FLEX*/
-  /*GRID*/
+/**
+ *  SECTION: OUTPUT
+*/
+section#ele__output {
   /*POSTITION*/
+  width: 640px;
   /*DISPLAY*/
+  display: flex;
+  flex-direction: row;
+  /**------------------------------------
+   * ITEM
+   *-----------------------------------*/
+  /**------------------------------------
+   * ITEM CONTAINER
+   *-----------------------------------*/
+}
+section#ele__output .title {
+  /*POSTITION*/
+  width: 100px;
+  /*DISPLAY*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   /*BORDER*/
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
   /*BACKGROUND*/
+  background: #2d7356;
   /*TEXT*/
-  /*SHADOW*/
-  /*TRANSFORM*/
-  /*ANIMATION*/
+  font-weight: 600;
+  color: #f2f4f3;
+  /**
+   * OUTPUT ICON
+   */
+}
+section#ele__output .title .icon {
+  margin-bottom: 6px;
+  font-size: 24px;
+}
+section#ele__output #item__container {
+  flex: 1;
+  /*POSTITION*/
+  padding: 24px 0;
+  /*DISPLAY*/
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: 1fr;
+  /*BORDER*/
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  /*BACKGROUND*/
+  background: #66f0b7;
+  /*TEXT*/
+  /**------------------------------------
+   *  ITEM
+   *-----------------------------------*/
+  /**
+   *  ITEM: FIRST
+   */
+}
+section#ele__output #item__container .item {
+  /*POSTITION*/
+  margin: 0;
+  padding: 0 12px;
+  /*DISPLAY*/
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  /*BORDER*/
+  border-left: 1px solid #6c9d89;
+  /**------------------------------------
+  *  H4
+  *-----------------------------------*/
+  /**------------------------------------
+  *  SMALL
+  *-----------------------------------*/
+}
+section#ele__output #item__container .item h4 {
+  /*POSTITION*/
+  margin: 6px 0;
+  padding: 0;
+  /*TEXT*/
+  font-size: 24px;
+  font-weight: 600;
+  color: #0c2b1e;
+}
+section#ele__output #item__container .item small {
+  /*POSTITION*/
+  margin: 0;
+  padding: 0;
+  /*TEXT*/
+  font-size: 12px;
+  color: #434644;
+}
+section#ele__output #item__container .item:first-child {
+  border-left: none;
 }
 
 /*-------------------------------------------------------------------
- *   INPUT ELEMENTS
+ *   SECTIONS ELEMENTS: OUTPUT
  *------------------------------------------------------------------*/
 /**
- *  INPUT
+ *  SECTION: ENTRY CONTAINER
  */
-input {
-  /*FLEX*/
-  /*GRID*/
+section#entry__container {
   /*POSTITION*/
+  padding: 0;
+  margin: 24px 0;
+  width: 640px;
+  /*DISPLAY*/
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  grid-template-rows: 1fr;
+  /**------------------------------------
+  *  ENTRY TITLE
+  *-----------------------------------*/
+  /**------------------------------------
+  *  ENTRY OUTPUT
+  *-----------------------------------*/
+  /**------------------------------------
+  *  ENTRY: INPUTS
+  *-----------------------------------*/
+}
+section#entry__container article.entry__title {
+  /*POSTITION*/
+  padding: 24px 0;
+  width: 100px;
+  /*DISPLAY*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*BORDER*/
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  /*BACKGROUND*/
+  background: #4a31e7;
+  /*TEXT*/
+  font-weight: 600;
+  color: #f2f4f3;
+  /**
+   *  TITLE ICON
+   */
+}
+section#entry__container article.entry__title .icon {
+  margin-bottom: 6px;
+  font-size: 24px;
+}
+section#entry__container article#entry__output {
+  /*DISPLAY*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*BACKGROUND*/
+  background: #edecfd;
+  /*TEXT*/
+  font-size: 24px;
+  color: #120753;
+}
+section#entry__container article#entry__inputs {
+  /*DISPLAY*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /*BORDER*/
+  border-left: 1px solid #C6C4FA;
+  /**------------------------------------
+  *  ENTRY ICON
+  *-----------------------------------*/
+  /**------------------------------------
+  *  ENTRY BUTTON
+  *-----------------------------------*/
+  /**------------------------------------
+  *  ENTRY INPUT
+  *-----------------------------------*/
+}
+section#entry__container article#entry__inputs .icon {
+  /*POSTITION*/
+  margin: 0;
+  padding: 0 0 0 12px;
+  height: 100%;
+  /*DISPLAY*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  /*BORDER*/
+  border-top: 1px solid #edecfd;
+  border-bottom: 1px solid #edecfd;
+  /*BACKGROUND*/
+  background: #edecfd;
+  /*TEXT*/
+  font-size: 24px;
+}
+section#entry__container article#entry__inputs button {
+  outline: none;
+  cursor: pointer;
+  /*POSTITION*/
+  padding: 0 12px;
+  height: 100%;
   /*DISPLAY*/
   /*BORDER*/
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid #edecfd;
   /*BACKGROUND*/
+  background: #C6C4FA;
   /*TEXT*/
+  font-weight: 600;
+  color: #120753;
+  /*ANIMATIONS*/
+  transition: all 0.95s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+section#entry__container article#entry__inputs button:hover {
+  /*BORDER*/
+  border: 1px solid #4a31e7;
+  /*BACKGROUND*/
+  background: #4a31e7;
+  /*TEXT*/
+  color: #f2f4f3;
+}
+section#entry__container article#entry__inputs input {
+  outline: none;
+  /*POSTITION*/
+  height: 100%;
+  /*BORDER*/
+  border: 1px solid #edecfd;
+  /*BACKGROUND*/
+  background: #edecfd;
+  /*TEXT*/
+  text-align: center;
+  font-weight: 600;
+  color: #120753;
+  font-size: 24px;
+}
+
+/**------------------------------------
+ *  ALERTS
+ *-----------------------------------*/
+section#ele__alerts {
+  /*POSTITION*/
+  position: absolute;
+  z-index: 10;
+  width: 640px;
+  /*DISPLAY*/
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 1fr;
+  /*BORDER*/
+  border-radius: 4px;
   /*SHADOW*/
-  /*TRANSFORM*/
-  /*ANIMATION*/
+  box-shadow: 0 4px 2px 2px rgba(0, 0, 0, 0.2);
+  /**------------------------------------
+  *  ITEM
+  *-----------------------------------*/
+  /**------------------------------------
+   *  SMALL
+   *-----------------------------------*/
+}
+section#ele__alerts .title {
+  /*POSTITION*/
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*BORDER*/
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  /*BACKGROUND*/
+  background: #cd327b;
+  /*TEXT*/
+  font-size: 16px;
+  font-weight: 600;
+  color: #f2f4f3;
+  /**
+   * ICON
+   */
+}
+section#ele__alerts .title .icon {
+  margin-bottom: 6px;
+  font-size: 24px;
+}
+section#ele__alerts small {
+  /*POSTITION*/
+  padding: 24px;
+  /*DISPLAY*/
+  display: block;
+  /*BORDER*/
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  /*BACKGROUND*/
+  background: #fbdde6;
+  /*TEXT*/
+  color: #270313;
+  font-size: 16px;
 }
 
 /*-------------------------------------------------------------------

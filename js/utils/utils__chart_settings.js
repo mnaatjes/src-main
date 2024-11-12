@@ -288,18 +288,51 @@ class ChartSettings{
          */
         let result = {scale: [], labels: []};
         /**
-         * @name countDec
+         * @name findDivisor
          * @type {Function}
          * @memberof ChartSettings
+         * @param {Number} dividend
          */
-        function countDec(num){
-            let res = [];
-            for(let i = num; i > 0; i--){
-                if(num / i == 10){
+        function findDivisor(dividend){
+            /**
+             * loop based on dividend
+             */
+            for(let i = 1; i <= dividend; i++){
+                /**
+                 * if divided remainder is zero
+                 * and dividend / i (divisor) == 10
+                 * return divisor
+                 */
+                if(dividend % i === 0 && dividend / i === 10){
                     return i;
                 }
             }
-            return res;
+            /**
+             * if no divisor results in 10
+             * find nearest divisor
+             */
+            let close_divisor   = 1;
+            let close_result    = dividend;
+            /**
+             * loop
+             */
+            for(let i = 1; i <= dividend; i++){
+                /**
+                 * if no remainder
+                 * set result
+                 */
+                let quotient = dividend / i;
+                /**
+                 * check if number is close to 20
+                 */
+                console.log(Math.ceil(i));
+                console.log(Math.ceil(i));
+                if(quotient <= 15){
+                    return Math.ceil(i);
+                }
+            }
+            console.error('Cannot Compute Number!');
+            return null;
         }
         /**
          * determine axis
@@ -315,7 +348,7 @@ class ChartSettings{
             /**
              * determine decrement
              */
-            dec = countDec(num);
+            dec = findDivisor(num);
         }
         else {console.error('Number not defined in ChartSettings.buildScale');}
         /**
@@ -369,6 +402,10 @@ class ChartSettings{
          * calculate center coords of x-axis areas
          */
         let centers = this.getCenters(result.scale);
+        /**
+         * reverse centers for proper output
+         */
+        centers.reverse();
         /**
          * loop scale and input center position
          * for labels
